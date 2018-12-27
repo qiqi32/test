@@ -3,7 +3,7 @@ TEST
 
 
 import unittest
-from selinium import webdriver
+from selenium import webdriver
 
 #测试账户:
 #用户名：qiqi3
