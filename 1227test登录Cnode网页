@@ -6,34 +6,31 @@ import unittest
 from selenium import webdriver
 
 #测试账户:
-#用户名：qiqi3
+#用户名：qiqi32
 #密码：QIqi32.
 
 class Cnode(unittest.TestCase):
 
     def setUp(self):
-        self.Url = 'http://39.107.96.138:3000/'
+        self.Url ='http://39.107.96.138:3000/'
         self.driver = webdriver.Chrome()
         self.driver.get(self.Url)
 
-
     def test_register(self):
-        pass
-    #     driver = self.driver
-    #     driver.find_element_by_css_selector('a href="/signin"]').click()
-    #     driver.find_element_by_id('name').send_keys('qiqi3')
-    #     driver.find_element_by_id('pass').send_keys('QIqi32.')
-    #     driver.find_element_by_class_name('span-primary')
-    #     driver.find_element_by_id('re_pass').send_keys('xxxxxx')
-    #     driver.find_element_by_id('email').send_keys('xxxxx')
-    #     driver.find_element_by_css_selector('input[type="submit"]').click()
+        driver = self.driver
+        driver.find_element_by_css_selector('a[href="/signup"]').click()
+        driver.find_element_by_id('loginname').send_keys('qiqi32')
+        driver.find_element_by_id('pass').send_keys('QIqi32.')
+        driver.find_element_by_id('re_pass').send_keys('QIqi32.')
+        driver.find_element_by_id('email').send_keys('18864986430@163.com')
+        driver.find_element_by_css_selector('input[type="submit"]').click()
 
     def test_login(self):
         driver = self.driver
-        driver.find_element_by_css_selector('a href="/signin"]').click()
-        driver.find_element_by_id('name').send_keys('qiqi3')
+        driver.find_element_by_css_selector('a[href="/signin"]').click()
+        driver.find_element_by_id('name').send_keys('qiqi32')
         driver.find_element_by_id('pass').send_keys('QIqi32.')
-        driver.find_element_by_css_selector('input[type="submit"]').click()
+        driver.find_element_by_class_name('span-primary').click()
 
 
     def tearDown(self):
