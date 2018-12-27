@@ -16,8 +16,9 @@ class Cnode(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.get(self.Url)
 
-     def test_register(self):
-         pass
+
+    def test_register(self):
+        pass
     #     driver = self.driver
     #     driver.find_element_by_css_selector('a href="/signin"]').click()
     #     driver.find_element_by_id('name').send_keys('qiqi3')
