@@ -1,0 +1,65 @@
+# test
+TEST
+import unittest
+from selenium import webdriver
+"""
+测试账户:
+用户名：user0  
+密码：123456
+"""
+
+class Cnode(unittest.TestCase):
+
+
+    def setUp(self):
+        self.Url = 'http://39.107.96.138:3000/'
+        self.driver = webdriver.Chrome()
+        self.driver.get(self.Url)
+        # 登陆用户
+        self.driver.find_element_by_css_selector('a[href="/signin"]').click()
+        # 用户名
+        self.driver.find_element_by_id('name').send_keys('user0')
+        # 密码
+        self.driver.find_element_by_id('pass').send_keys('123456')
+        # 登陆
+        self.driver.find_element_by_css_selector('input[type="submit"]').click()
+"""
+登陆成功后,页面导航到首页
+发布话题的操作
+1.首页点击发布话题--话题发布页面
+2.选择一个版块
+3.输入标题
+4.输入文本
+5.提交
+请将上述5步操作在下面test_post中实现
+"""
+     def test_post_topic(self):
+
+         self.Url = 'http://39.107.96.138:3000/'
+         self.driver = webdriver.Chrome()
+         self.driver.get(self.Url)
+         # 点击首页
+         self.driver.find_element_by_css_selector('a[href="/"]').click()
+         #点击题发布
+         self.driver.find_element_by_class_name('span - success').click()
+         # 选择模块
+         self.driver.find_element_by_id('tab-value').find_elements_by_tag_name('分享')[0].click()
+         #self.driver.find_element_by_xpath('//*[@id="tab-value"]/option[2]').click()
+         #self.driver.find_element_by_id("test").find_elements_by_tag_name("option")[0].click();
+         # 编辑标记个数
+         self.driver.find_element_by_id('title').send_keys('python 定位元素方法')
+         # 编辑内容
+         self.driver.find_element_by_class_name('CodeMirror-code').send_keys('测试测试')
+         #提交
+         self.driver.find_element_by_class_name('span - primary submit_btn').click()
+
+
+     def tearDown(self):
+
+         self.driver.save_screenshot('D:\posttopic.png')
+         self.driver.quit()
+
+
+if __name__ == "__main__":
+
+    unittest.main()
