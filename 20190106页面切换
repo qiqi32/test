@@ -8,6 +8,8 @@ driver.get('https://www.baidu.com/')
 time.sleep(3)
 driver.get('http://news.baidu.com/')
 time.sleep(2)
+#等待2秒后刷新
+driver.refresh()
 #返回上一页
 driver.back()
 time.sleep(1)
