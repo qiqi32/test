@@ -1,0 +1,15 @@
+# test
+TEST
+from selenium import webdriver
+import time
+
+driver =webdriver.Chrome()
+driver.get('https://www.baidu.com/')
+time.sleep(3)
+driver.get('http://news.baidu.com/')
+time.sleep(2)
+#返回上一页
+driver.back()
+time.sleep(1)
+#切换到下一页
+driver.forward()
