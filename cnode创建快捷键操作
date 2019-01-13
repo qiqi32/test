@@ -1,0 +1,41 @@
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+
+
+driver = webdriver.Chrome() 
+
+
+driver.get('http://39.107.96.138:3000/signin')
+driver.find_element_by_id('name').send_keys('user1')
+driver.find_element_by_id('pass').send_keys('123456')
+driver.find_element_by_css_selector('.span-primary').click()
+
+driver.get('http://39.107.96.138:3000/topic/create')
+
+input_content = driver.find_element_by_css_selector('.CodeMirror-lines')
+input_content.click()
+
+action = ActionChains(driver)
+
+action.move_to_element(input_content).send_keys('abc')
+
+action.key_down(Keys.COMMAND)
+action.send_keys('a')
+action.key_up(Keys.COMMAND)
+
+action.key_down(Keys.COMMAND)
+action.send_keys('b')
+action.key_up(Keys.COMMAND)
+
+
+# perform()
+
+action.perform()
+
+
+# driver.find_element_by_class_name('eicon-image').click()
+
+
+# driver.find_element_by_class_name('webuploader-element-invisible').send_keys('/Users/zyzhao/Desktop/2019-01-13-selenium02.png')
+
