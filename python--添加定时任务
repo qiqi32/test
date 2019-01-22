@@ -1,0 +1,15 @@
+# test
+TEST
+import schedule
+import time
+
+def job():
+    print('i am wuqiqi')   #打印需要添加的定时任务信息
+
+schedule.every(1).minutes.do(job)  #每一分钟打印一次
+
+while True:
+    schedule.run_pending()
+    time.sleep(2)    #间隔为2分钟
+
+
