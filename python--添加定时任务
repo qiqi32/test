@@ -6,14 +6,14 @@ import time
 def job():
     print('i am wuqiqi')   #打印需要添加的定时任务信息
 
-schedule.every(1).minutes.do(job)  #每一分钟运行
-schedule.every(5).to(10).minutes.do(job)  #每5分钟到10分钟打运行
-schedule.every(1).hour.do(job)     #每一小时打印一次
-schedule.every(1).day.at('10:30').do(job) #每天的十点半运行
-schedule.every().monday.do(job)     #每一个月运行
+schedule.every(2).minutes.do(job)  #每一分钟运行
+#schedule.every(5).to(10).minutes.do(job)  #每5分钟到10分钟打运行
+#schedule.every(1).hour.do(job)     #每一小时打印一次
+#schedule.every(1).day.at('10:30').do(job) #每天的十点半运行
+#schedule.every().monday.do(job)     #每一个月运行
 
-schedule.every().wednesday.at('10:30').do(job)  #每星期三的十点半运行
-schedule.every().minute.at(':17').do(job)  #每小时的17运行
+#schedule.every().wednesday.at('10:30').do(job)  #每星期三的十点半运行
+#schedule.every().minute.at(':17').do(job)  #每小时的17运行
 
 
 while True:
