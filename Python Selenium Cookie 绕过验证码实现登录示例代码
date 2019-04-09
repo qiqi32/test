@@ -7,7 +7,7 @@ TEST
 # SoftWare : PyCharm
 from selenium import webdriver
 import time
-url = 'https://pgdcdemo.linkwin.com'
+url = 'http://hfwms.winsafe.cn/dashboard'
 def login():
  '''先定义一个正常登录的方法，获取登录前和登录后的cookie'''
 driver = webdriver.Chrome()
@@ -17,12 +17,15 @@ cookieBefore = driver.get_cookies()
 # 打印登录前的cookie
 print(cookieBefore)
 time.sleep(2)
-driver.find_element_by_id("username").clear()
-driver.find_element_by_id("username").send_keys("admin")
+driver.find_element_by_name("userName").clear()
+driver.find_element_by_name("userName").send_keys("admin")
 driver.implicitly_wait(5)
-driver.find_element_by_id("password").clear()
-driver.find_element_by_id("password").send_keys("Changfu@123")
-driver.find_element_by_name('imageField').click()
+driver.find_element_by_name("passwd").clear()
+driver.find_element_by_name("passwd").send_keys("a123456")
+# driver.find_element_by_css_selector('input[type="button"').click()
+#利用xpath定位元素来获取【确定】按钮
+driver.find_element_by_xpath('.//*[@id="loginForm"]/div[4]/input').click()
+
 driver.implicitly_wait(5)
 # 加一个休眠，这样得到的cookie 才是登录后的cookie,否则可能打印的还是登录前的cookie
 time.sleep(5)
