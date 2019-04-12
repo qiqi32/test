@@ -29,6 +29,6 @@ if __name__ == "__main__":
     driver = webdriver.Chrome()
     # 调用登录
     login(driver, "qiqi32", "QIqi32.")
-    print("hello  yoyo!")
+    print("hello  qiqi!")
     # 调用退出
     logout(driver)
